@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://arpittiwari.dev",
+    url: "https://arpit-builds.vercel.app",
     title: "Arpit Tiwari | Software Engineer",
     description:
       "Software Engineer focused on backend systems, full-stack development, AI-powered applications, and workflow automation.",
