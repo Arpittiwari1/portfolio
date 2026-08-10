@@ -15,9 +15,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://arpit-builds.vercel.app"),
+
   title: "Arpit Tiwari | Software Engineer",
+
   description:
     "Arpit Tiwari — Software Engineer focused on backend systems, full-stack development, AI-powered applications, and workflow automation.",
+
   keywords: [
     "Arpit Tiwari",
     "Software Engineer",
@@ -28,14 +32,22 @@ export const metadata: Metadata = {
     "Node.js",
     "React",
     "TypeScript",
+    "Python",
     "Ollama",
     "n8n",
   ],
+
   authors: [{ name: "Arpit Tiwari" }],
   creator: "Arpit Tiwari",
+
+  alternates: {
+    canonical: "https://arpit-builds.vercel.app",
+  },
+
   icons: {
     icon: "/favicon.svg",
   },
+
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -45,6 +57,7 @@ export const metadata: Metadata = {
       "Software Engineer focused on backend systems, full-stack development, AI-powered applications, and workflow automation.",
     siteName: "Arpit Tiwari Portfolio",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Arpit Tiwari | Software Engineer",
@@ -63,10 +76,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans min-h-screen flex flex-col bg-[#090d16] text-slate-200">
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
