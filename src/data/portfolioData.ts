@@ -36,7 +36,13 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface Highlight {
+  value: string;
+  label: string;
+}
+
 export interface PortfolioData {
+  highlights: Highlight[];
   personal: {
     name: string;
     role: string;
@@ -68,23 +74,29 @@ export interface PortfolioData {
 }
 
 export const portfolioData: PortfolioData = {
+  highlights: [
+    { value: "10k+", label: "verified leads per automation run" },
+    { value: "15+", label: "n8n workflows built" },
+    { value: "2", label: "production AI platforms shipped" },
+    { value: "162+", label: "LeetCode problems solved" },
+  ],
   personal: {
     name: "Arpit Tiwari",
-    role: "Software Engineer",
+    role: "Full-Stack Developer",
     focus: [
-      "Backend Engineering",
-      "AI Applications",
       "Full-Stack Development",
+      "AI-Powered Applications",
+      "Backend & API Engineering",
     ],
     heroMessage:
-      "I build backend systems, full-stack products, and AI-powered tools that solve real problems.",
+      "I build full-stack web apps: the React frontend, the backend APIs, and the AI features that plug into them.",
     heroSubtext:
-      "I build production systems across APIs, asynchronous processing, authentication, AI integrations, and workflow automation.",
+      "My day to day is React and TypeScript on the front, FastAPI and Node.js on the back, plus auth, background jobs, AI integrations, and n8n automation.",
     about: [
-      "I'm Arpit Tiwari, a Software Engineer focused on building full-stack, backend, and AI-powered applications.",
-      "I enjoy turning ideas into reliable production systems, with hands-on experience across APIs, automation, authentication, asynchronous processing, and AI integrations.",
-      "At LevelUP MultiLink LLP, I've worked on AI-powered automation and internal intelligence products, including a prospecting platform and an investment intelligence dashboard with a retrieval-grounded AI assistant.",
-      "I'm always learning, building, and looking for meaningful engineering problems to solve.",
+      "I'm Arpit Tiwari, a full-stack developer. I build the React and TypeScript frontend, the backend APIs, and the AI features that connect to them.",
+      "I like taking an idea and shipping it as something reliable. So far that has meant APIs, automation, authentication, background processing, and AI integrations.",
+      "At LevelUP MultiLink LLP, I've built AI-powered automation and internal intelligence products end to end, frontend and backend, including a prospecting platform and an investment intelligence dashboard with a retrieval-grounded AI assistant.",
+      "I'm still learning, and I'm looking for interesting problems to work on.",
     ],
   },
   socialLinks: {
@@ -97,23 +109,27 @@ export const portfolioData: PortfolioData = {
     {
       company: "LevelUP MultiLink LLP",
       role: "Junior Developer Associate",
-      duration: "Feb 2026 – Present",
+      duration: "Feb 2026 to Present",
       location: "Remote",
       summary:
         "Building production backend systems, full-stack products, and AI-powered automation across internal platforms.",
       bullets: [
+        "Built the React and TypeScript frontends for both internal platforms, from the prospecting workflow to the investment dashboard and AI chat interface.",
         "Integrated production APIs across prospect discovery, verification, enrichment, AI classification, and campaign generation.",
         "Built async job processing with queues, caching, and rate limiting to handle high-volume workloads reliably.",
-        "Created 15–20 n8n automation workflows for lead generation and campaign execution.",
+        "Created 15 to 20 n8n automation workflows for lead generation and campaign execution.",
         "Developed backend enrichment pipelines for an investment intelligence platform using Firecrawl and Ollama.",
         "Implemented OAuth, JWT, RBAC, and Cloudflare Zero Trust for protected internal systems.",
         "Containerized and deployed services using Docker and GitHub Actions CI/CD.",
       ],
       coreTech: [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
         "FastAPI",
         "Python",
         "Node.js",
-        "React",
         "Docker",
         "Ollama",
         "Claude",
@@ -143,6 +159,7 @@ export const portfolioData: PortfolioData = {
         { step: "7", label: "Campaign Creation" },
       ],
       ownership: [
+        "React & TypeScript Frontend",
         "Backend Architecture",
         "API Orchestration",
         "Async Processing & Job Queues",
@@ -152,6 +169,9 @@ export const portfolioData: PortfolioData = {
       ],
       techStack: [
         "React",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
         "FastAPI",
         "Python",
         "Docker",
@@ -165,12 +185,13 @@ export const portfolioData: PortfolioData = {
         "Google Sheets",
       ],
       highlights: [
+        "Built the React and TypeScript frontend where users define their ICP, start prospecting runs, follow job progress, and review verified leads and generated campaigns.",
         "Designed and implemented the backend orchestration pipeline integrating prospect search, email verification, AI classification, lead enrichment, and campaign generation across multiple third-party services.",
         "Implemented asynchronous job queues with caching and rate limiting to support high-volume concurrent processing while preventing API contention and rate-limit violations.",
         "Integrated Claude and Ollama to power AI-driven prospect classification and personalized outbound outreach generation.",
       ],
       businessImpact:
-        "Automated prospecting, verification, enrichment, and campaign creation end-to-end, enabling generation of approximately 10,000–20,000 verified, ICP-matched leads per run without manual effort.",
+        "Automated prospecting, verification, enrichment, and campaign creation end-to-end, enabling generation of approximately 10,000 to 20,000 verified, ICP-matched leads per run without manual effort.",
     },
     {
       id: "investment-intelligence-dashboard",
@@ -190,6 +211,7 @@ export const portfolioData: PortfolioData = {
         { step: "5", label: "Ollama AI Assistant" },
       ],
       ownership: [
+        "React & TypeScript Frontend",
         "Backend Enrichment Pipeline",
         "Structured Data Layer",
         "Authentication & RBAC Security",
@@ -199,6 +221,9 @@ export const portfolioData: PortfolioData = {
       ],
       techStack: [
         "React",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
         "Node.js",
         "WhatsApp Bot",
         "Firecrawl",
@@ -231,6 +256,7 @@ export const portfolioData: PortfolioData = {
         ],
       },
       highlights: [
+        "Built the React and TypeScript dashboard frontend: company and portfolio views, the AI assistant chat interface, and role-aware screens for Admin, Partner, Analyst, and Viewer users.",
         "Built a backend enrichment pipeline that processes WhatsApp-submitted pitch decks and enriches company, founder, and funding data through Firecrawl.",
         "Integrated Ollama to power a retrieval-grounded AI assistant using structured company data.",
         "Implemented authentication and authorization using Google OAuth, JWT, role-based access control, and Cloudflare Zero Trust.",
@@ -241,6 +267,10 @@ export const portfolioData: PortfolioData = {
     },
   ],
   skills: [
+    {
+      category: "Frontend",
+      skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
+    },
     {
       category: "Backend",
       skills: ["FastAPI", "Python", "Node.js", "Express", "REST APIs", "Java"],
@@ -266,10 +296,6 @@ export const portfolioData: PortfolioData = {
       skills: ["OAuth", "JWT", "RBAC", "Cloudflare Zero Trust"],
     },
     {
-      category: "Frontend",
-      skills: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
-    },
-    {
       category: "Engineering Concepts",
       skills: ["Queue Processing", "Background Jobs", "Async Processing", "Caching", "Rate Limiting"],
     },
@@ -293,6 +319,6 @@ export const portfolioData: PortfolioData = {
   education: {
     institution: "Indira Gandhi National Open University",
     degree: "Bachelor of Computer Applications (BCA)",
-    duration: "Sep 2023 – Nov 2026",
+    duration: "Sep 2023 to Nov 2026",
   },
 };

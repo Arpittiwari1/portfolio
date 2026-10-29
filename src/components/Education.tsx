@@ -1,39 +1,50 @@
-"use client";
-
-import { GraduationCap, Calendar } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
+import Section from "@/components/Section";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Education() {
-  const { education } = portfolioData;
+  const { education, codingProfile } = portfolioData;
 
   return (
-    <section className="py-12 border-b border-slate-800/60">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-slate-800/80 border border-slate-700 text-cyan-400">
-            <GraduationCap className="w-5 h-5" />
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-sans">
+    <Section id="education" title="Education and practice">
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card className="gap-0 p-6">
+          <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Education
-          </h2>
-        </div>
+          </h3>
+          <p className="mt-4 text-lg font-semibold tracking-tight">{education.institution}</p>
+          <p className="mt-1 text-sm text-brand">{education.degree}</p>
+          <p className="mt-3 text-sm text-muted-foreground">{education.duration}</p>
+        </Card>
 
-        <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <h3 className="text-base font-bold text-white">
-              {education.institution}
-            </h3>
-            <p className="text-cyan-400 font-mono text-xs mt-0.5">
-              {education.degree}
-            </p>
+        <Card className="gap-0 p-6">
+          <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            Problem solving
+          </h3>
+          <div className="mt-4 flex items-baseline gap-3">
+            <p className="text-lg font-semibold tracking-tight">{codingProfile.platform}</p>
+            <p className="text-sm text-muted-foreground">{codingProfile.solvedCount} solved</p>
           </div>
-
-          <div className="flex items-center gap-2 text-slate-400 font-mono text-xs bg-slate-800/60 px-3 py-1 rounded-md border border-slate-700/50 shrink-0 self-start sm:self-center">
-            <Calendar className="w-3.5 h-3.5 text-slate-400" />
-            <span>{education.duration}</span>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {codingProfile.topics.map((topic) => (
+              <Badge key={topic} variant="secondary" className="font-normal">
+                {topic}
+              </Badge>
+            ))}
           </div>
-        </div>
+          <a
+            href={codingProfile.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "mt-6 w-fit")}
+          >
+            View profile
+          </a>
+        </Card>
       </div>
-    </section>
+    </Section>
   );
 }

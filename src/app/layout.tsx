@@ -1,32 +1,31 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import MotionProvider from "@/components/ui/MotionProvider";
 
-const inter = Inter({
+const geistSans = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist-sans",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arpit-builds.vercel.app"),
-
-  title: "Arpit Tiwari | Software Engineer",
-
+  title: "Arpit Tiwari | Full-Stack Developer",
   description:
-    "Arpit Tiwari — Software Engineer focused on backend systems, full-stack development, AI-powered applications, and workflow automation.",
-
+    "Arpit Tiwari, Full-Stack Developer. React, TypeScript, FastAPI and Node.js apps with AI features and workflow automation.",
   keywords: [
     "Arpit Tiwari",
+    "Full-Stack Developer",
+    "Full-Stack Engineer",
     "Software Engineer",
     "Backend Engineer",
-    "Full-Stack Engineer",
     "AI Applications Engineer",
     "FastAPI",
     "Node.js",
@@ -52,22 +51,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://arpit-builds.vercel.app",
-    title: "Arpit Tiwari | Software Engineer",
+    title: "Arpit Tiwari | Full-Stack Developer",
     description:
-      "Software Engineer focused on backend systems, full-stack development, AI-powered applications, and workflow automation.",
+      "Full-Stack Developer building React, TypeScript, FastAPI, and Node.js applications, AI-powered features, and workflow automation.",
     siteName: "Arpit Tiwari Portfolio",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Arpit Tiwari | Software Engineer",
+    title: "Arpit Tiwari | Full-Stack Developer",
     description:
-      "Software Engineer focused on backend systems, full-stack development, AI-powered applications, and workflow automation.",
+      "Full-Stack Developer building React, TypeScript, FastAPI, and Node.js applications, AI-powered features, and workflow automation.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090d16",
+  themeColor: "#0d0f15",
 };
 
 export default function RootLayout({
@@ -76,11 +75,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
-    >
-      <body>{children}</body>
+    <html lang="en" className={`dark ${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-screen flex flex-col">
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }
